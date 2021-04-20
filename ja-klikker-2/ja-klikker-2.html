@@ -1,42 +1,59 @@
 <!doctype HTML>
 <html>
 <head>
-	<meta charset="utf-8"/>
-	<title>Ja-klikker-2</title>
-	<style>
-		body {font-family: sans-serif;}
-		#buttonContainer {
+    <meta charset="utf-8"/>
+    <title>Ja-klikker-1</title>
+    <style>
+        body {font-family: sans-serif;}
+        #buttonContainer {
+            display: grid;
+            grid-template-columns: 100px 100px;
+            grid-template-rows:  100px 100px;
+            gap: 2px 2px;
+            margin-left: 45%;
+        }
 
-		}
+        #coding-instructions {
+            font-size: 20px;
+             margin-left: 20px;
+        }
 
-		#coding-instructions {
-			font-size: 20px;
- 			margin-left: 20px;
-		}
+        h2 {
+            font-size: 25px;
+            margin-left: 20px;
+        }
 
-		h2 {
-			font-size: 25px;
-			margin-left: 20px;
-		}
+        h1 {
+            font-size: 40px;
+             margin-left: 20px;            
+        }
 
-		h1 {
-			font-size: 40px;
- 			margin-left: 20px;			
-		}
+        button{
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-	</style>
+        .state0{
+            background-color: #f88;
+        }
+        .state1{
+            background-color: #8f8;
+        }
+
+    </style>
 </head>
 <body>
-	<h1>Ja-klikker-2</h1>
-	<h2>Maak deze ja-klikker-2 pagina<br>lijkend op en werkend volgens<br>filmpje ja-klikker-2.mkv</h2>
-	<div id="buttonContainer">
-		<button>Nee</button>
-		<button>Nee</button>
-		<button>Nee</button>
-		<button>Nee</button>
-	</div>
-
-	<ul id="coding-instructions">
+    <h1>Ja-klikker-2</h1>
+    <h2>Maak deze ja-klikker-1 pagina<br>lijkend op en werkend volgens<br>filmpje ja-klikker-1.mkv</h2>
+    <div id="buttonContainer">
+        <button id="1" class="state0" onclick="clickButton(1);clickButton(2)">Nee</button>
+        <button id="2" class="state0" onclick="clickButton(2);clickButton(3)">Nee</button>
+        <button id="3" class="state0" onclick="clickButton(3)">Nee</button>
+        <button id="4" class="state0" onclick="clickButton(4);clickButton(1)">Nee</button>
+    </div>
+    <ul id="coding-instructions">
 		<li>Gebruik css-grid display</li>
 		<li>buttons zijn 100 pixels bij 100 pixels groot</li>
 		<li>Centreer de buttons</li>
@@ -48,16 +65,21 @@
 		<li>Werk zonder gebruik van het internet</li>
 		<li>Tel het aantal keer dat je w3schools.com toch hebt geraadpleegd</li>
 	</ul>
-	<h2>Het aantal keer dat ik w3schools.com heb geraadpleegd: <strong>0</strong></h2>
-	<h2>De tijd in minuten die ik nodig had voor deze uitdaging <strong>60</strong></h2>
 </body>
 </html>
 
-
 <script>
-	function clickButton(){
+    function clickButton(id){
+        var button = document.getElementById(id);
+        if(button.className == "state0"){
+            button.innerText = "Ja";
+            button.className = "state1";
+        }
+        else{
+            button.innerText = "Nee";
+            button.className = "state0";
+        }
+    }
 
-	}
 
-
-</script>
+</script> 
